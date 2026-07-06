@@ -37,7 +37,6 @@ main(int argc, char **argv)
     TEST_START;
     TEST_GET_OPT_STRING_PARAM(target);
     TEST_GET_OPT_STRING_PARAM(probe_aor);
-    TEST_GET_OPT_BOOL_PARAM(attempt_register);
 
     if (target == NULL || target[0] == '\0')
         TEST_SKIP("No SIP target configured (set the 'target' parameter)");
