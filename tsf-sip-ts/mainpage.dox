@@ -1,0 +1,18 @@
+/** @mainpage
+
+This suite exercises tsf-sip - probing a SIP (VoIP) user agent or proxy
+from the Test Agent it runs on, over libeXosip2:
+
+- @ref sip-probe - send an OPTIONS request to a configured SIP target
+  and inspect the response (status, Server/User-Agent/Allow banners);
+- @ref sip-audit - read the endpoint as a security posture through
+  tsf-cybersec and gate on it: does it answer, does OPTIONS leak the
+  stack/version, is an anonymous REGISTER accepted (high), do existing
+  and made-up accounts answer differently (user enumeration).
+
+Signalling only - no media. The target is a test parameter; with none
+set the tests skip, so a bare run is a clean skip rather than a failure.
+The REGISTER-based checks write to a real registrar and run only when
+explicitly enabled, against a target you are authorized to assess.
+
+*/

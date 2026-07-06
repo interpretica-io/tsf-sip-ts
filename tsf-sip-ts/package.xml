@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<package version="1.0">
+    <description>tsf-sip demonstration suite</description>
+
+    <!-- @page sip-ts SIP Probing Suite
+          @objective Exercise tsf-sip against a SIP UA/proxy from the
+                     agent the suite runs on.
+
+          @par Test Groups:
+          - @ref sip-probe - OPTIONS-probe a UA and inspect its response
+          - @ref sip-audit - Read the SIP security posture and gate on it
+
+          @par Notes:
+          - SIP signalling runs on the agent, in its RPC server, over
+            libeXosip2/libosip2. Signalling only - no media.
+          - The target is a test parameter; with none set the tests
+            skip cleanly, so a bare run is a skip rather than a failure.
+          - The unauthenticated-REGISTER and user-enumeration checks
+            write to a real registrar and run only when explicitly
+            enabled, against a target you are authorized to assess.
+    -->
+
+    <author mailto="maxim.menshikov@interpretica.io" />
+
+    <session track_conf="silent">
+        <!-- @page sip-ts-prologue Test Suite Prologue
+              @objective Prepare the test environment.
+        -->
+        <prologue>
+            <script name="prologue">
+                <objective>
+                    Prepare the test environment.
+                    @md
+                </objective>
+            </script>
+        </prologue>
+
+        <!-- @page sip-ts-epilogue Test Suite Epilogue
+              @objective Finalize the test environment.
+        -->
+        <epilogue>
+            <script name="epilogue">
+                <objective>
+                    Finalize the test environment.
+                    @md
+                </objective>
+            </script>
+        </epilogue>
+
+        <run>
+            <package name="sip" />
+        </run>
+    </session>
+</package>
