@@ -15,6 +15,7 @@
 
 #include "te_config.h"
 #include "tapi_test.h"
+#include <stdlib.h>
 #include "te_string.h"
 
 #include "tapi_cybersec.h"
@@ -35,8 +36,8 @@ main(int argc, char **argv)
     te_bool report_ready = false;
 
     TEST_START;
-    TEST_GET_OPT_STRING_PARAM(target);
-    TEST_GET_OPT_STRING_PARAM(probe_aor);
+    target = getenv("TSF_SIP_TARGET");
+    probe_aor = getenv("TSF_SIP_AOR");
 
     if (target == NULL || target[0] == '\0')
         TEST_SKIP("No SIP target configured (set the 'target' parameter)");

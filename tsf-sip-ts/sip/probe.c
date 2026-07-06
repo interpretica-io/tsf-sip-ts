@@ -13,6 +13,7 @@
 
 #include "te_config.h"
 #include "tapi_test.h"
+#include <stdlib.h>
 
 #include "tapi_sip.h"
 #include "tsapi_sip.h"
@@ -27,8 +28,8 @@ main(int argc, char **argv)
     te_bool probe_ready = false;
 
     TEST_START;
-    TEST_GET_OPT_STRING_PARAM(target);
-    TEST_GET_OPT_STRING_PARAM(from);
+    target = getenv("TSF_SIP_TARGET");
+    from = getenv("TSF_SIP_FROM");
 
     if (target == NULL || target[0] == '\0')
         TEST_SKIP("No SIP target configured (set the 'target' parameter)");
