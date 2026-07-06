@@ -20,7 +20,7 @@
 int
 main(int argc, char **argv)
 {
-    tsapi_sip_session sess;
+    tsapi_sip_session sess = {0};
     tapi_sip_probe probe;
     const char *target = NULL;
     const char *from = NULL;

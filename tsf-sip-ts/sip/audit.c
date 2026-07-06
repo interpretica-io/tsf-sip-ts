@@ -25,7 +25,7 @@
 int
 main(int argc, char **argv)
 {
-    tsapi_sip_session sess;
+    tsapi_sip_session sess = {0};
     tapi_cybersec_report report;
     tapi_sip_audit_policy policy = tapi_sip_default_audit_policy;
     te_string verdict = TE_STRING_INIT;
